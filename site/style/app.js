@@ -9,13 +9,21 @@
 		$scope.message = "";
 		$scope.Express = function(){
 			var temp = $scope.item.split(',');
-			if(temp[0] == ""){
+			var len = 0;
+			for (var i = 0; i < temp.length ; i++) {
+				if(temp[i] != "" && temp[i] != " "){
+					len+=1;
+				}
+			}
+			console.log(temp);
+			console.log(len);
+			if(len == 0){
 				$scope.message = "Please enter data first";
 			}
-			else if(temp.length <= 3){
+			else if(len <= 3){
 				$scope.message = "Enjoy!";
 			}
-			else if(temp.length > 3){
+			else if(len > 3){
 				$scope.message = "Too much!";
 			}
 
